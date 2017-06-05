@@ -18,6 +18,8 @@ class BinaryNode:
         self.right  = None
         self.height = 0
         self.actorsData = actorsData
+        self.numberOfLeftRotations = 0
+        self.numberOfRightRotations = 0
         
         
     def computeHeight (self):
@@ -77,6 +79,7 @@ class BinaryNode:
 
     def rotateRight (self):
         """Perform right rotation around given node."""
+        self.numberOfRightRotations += 1
         newRoot = self.left
         grandson = newRoot.right
         self.left = grandson
@@ -88,6 +91,7 @@ class BinaryNode:
 
     def rotateLeft (self):
         """Perform left rotation around given node."""
+        self.numberOfLeftRotations += 1
         newRoot = self.right
         grandson = newRoot.left
         self.right = grandson
@@ -98,6 +102,8 @@ class BinaryNode:
 
     def rotateLeftRight (self):
         """Perform left, then right rotation around given node."""
+        self.numberOfRightRotations += 1
+        self.numberOfLeftRotations += 1
         child = self.left
         newRoot = child.right
         grand1  = newRoot.left
@@ -115,6 +121,8 @@ class BinaryNode:
 
     def rotateRightLeft (self):
         """Perform right, then left rotation around given node."""
+        self.numberOfRightRotations += 1
+        self.numberOfLeftRotations += 1
         child = self.right
         newRoot = child.left
         grand1  = newRoot.left
@@ -367,6 +375,59 @@ class BinaryTree:
             current = current.right
         return current
 
+    def numberOfRightRotations (self):
+        return self.rightRotations(self.root)
+
+    def numberOfLeftRotations (self):
+        return self.leftRotations(self.root)
+    
+    def rightRotations (self, node):
+        if node is None:
+            return 0
+
+        return self.rightRotations(node.left) + self.rightRotations(node.right) + node.numberOfRightRotations
+
+    def leftRotations (self, node):
+        if node is None:
+            return 0
+
+        return self.leftRotations(node.left) + self.leftRotations(node.right) + node.numberOfLeftRotations
+
+    def printNodeInRange(self, key1, key2):
+        if key1[-1] == "*":
+            key1 = key1[0:-1]
+        if key2[-1] == "*":
+            key2 = key2[0:-1] 
+        self.inorderForKeys(self.root, key1, key2)
+        
+    def inorderForKeys(self, root, k1, k2):
+        """if not k1 > root.value:
+            self.inorderForKeys(root.left,k1,k2)
+        if k1 < root.value and k2 > root.value:
+            print (root.value)
+        if not k2 < root.value:
+            self.inorderForKeys(root.right,k1,k2)"""
+        ans = []
+        if root is None:
+            return ans
+        queue = [root]
+        index = 0
+        while index < len(queue):
+            if queue[index] is not None:
+                if queue[index].value[0:len(k1)] >= k1 and \
+                    queue[index].value[0:len(k2)] <= k2:
+                    ans.append(queue[index].value)
+
+                queue.append(queue[index].left)
+                queue.append(queue[index].right)
+
+            index += 1
+        ans = sorted(ans)
+        f = open("temp.txt", "w")
+        f.write(str(ans))
+        f.close()
+        
+      
 """
 Change Log
 ----------

@@ -1,3 +1,16 @@
 106	Narayana A.L.	A.L., Narayana
 107	Raja A.M.	A.M., Raja
 108	Dwi A.P.	A.P., Dwi
+110	Kapoor A.P.	A.P., Kapoor
+114	Krishna A.R.	A.R., Krishna
+1001	Irving Aaronson	Aaronson, Irving
+1004	Jack Aaronson	Aaronson, Jack
+1006	Rayce Aaronson	Aaronson, Rayce
+1008	Sandy Aaronson	Aaronson, Sandy
+1010	Scott Aaronson	Aaronson, Scott
+1018	Stu Aaronson	Aaronson, Stu
+1022	Tapio Aarre-Ahtio	Aarre-Ahtio, Tapio
+1028	Bob Aarrons	Aarrons, Bob
+1030	Jorma Aarroskari	Aarroskari, Jorma
+1031	Reidar Aarsand	Aarsand, Reidar
+1033	Eivind Aarseth	Aarseth, Eivind

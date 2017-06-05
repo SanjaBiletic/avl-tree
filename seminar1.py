@@ -15,12 +15,19 @@ def createBinaryTree (inputFile):
 
 if __name__ == '__main__':
 
-    bt = createBinaryTree("actors10.txt")
+    bt = createBinaryTree("actors100K.txt")
+    print ("--------------------------------------------")
     actorsList = (bt.find("Irving Aaronson"))
     for a in actorsList:
         print (a.actorsData)
         
-    print (bt)
-    print (bt.height())
-    print (bt.minimum())
-    print (bt.maximum())
+    print ("Height for tree is:", bt.height())
+    print ("Minimum is:", bt.minimum().actorsData)
+    print ("Maximum is:", bt.maximum().actorsData)
+
+    print ("Number of right rotations is:", bt.numberOfRightRotations())
+    print ("Number of left rotations is:", bt.numberOfLeftRotations())
+
+    bt.printNodeInRange("Cer*", "Cor*")
+    print ("Please look temp.txt for range search results")
+    

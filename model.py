@@ -6,4 +6,4 @@ class ActorsData:
         self.longName = longName
 
     def __repr__(self):
-        return str(self.id) + " " + self.shortName + " " + self.longName
+        return str(self.id) + " - " + self.shortName + " - " + self.longName
