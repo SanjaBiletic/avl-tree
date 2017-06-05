@@ -17,7 +17,7 @@ class TestAVLMethods(unittest.TestCase):
             n = random.randint(1,1000)
             vals.append(n)
             if not n in self.bst:
-                self.bst.add(n)
+                self.bst.add(n, n)
                 self.assertTrue(self.bst.assertAVLProperty())
     
         ## iteriranje kroz stablo - inorder()
